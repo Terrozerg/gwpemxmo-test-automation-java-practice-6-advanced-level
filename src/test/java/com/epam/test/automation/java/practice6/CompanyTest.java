@@ -80,6 +80,21 @@ public class CompanyTest {
                 new Manager("m1", BigDecimal.valueOf(500000), 10),
                 new Manager("m2", BigDecimal.valueOf(500000), 10),
                 new SalesPerson("sale", BigDecimal.valueOf(250000), 10)};
+        sameEmployees[0].setBonus(BigDecimal.valueOf(500000));
+
+        company = new Company(sameEmployees);
+
+        Assert.assertEquals(company.nameMaxSalary(), "m1");
+    }
+
+    @Test
+    public void nameMaxSalaryWithBonusesTest(){
+        Employee[] sameEmployees = new Employee[]{
+                new Manager("m1", BigDecimal.valueOf(500000), 10),
+                new Manager("m2", BigDecimal.valueOf(600000), 10),
+                new SalesPerson("sale", BigDecimal.valueOf(250000), 10)};
+        sameEmployees[0].setBonus(BigDecimal.valueOf(500000));
+
         company = new Company(sameEmployees);
 
         Assert.assertEquals(company.nameMaxSalary(), "m1");

@@ -31,7 +31,7 @@ public class Company {
 
     public String nameMaxSalary(){
         return employees.stream()
-                .max(Comparator.comparing(Employee::getSalary))
+                .max(Comparator.comparing(Employee::toPay))
                 .map(Employee::getName)
                 .orElseThrow();
     }
